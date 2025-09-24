@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ Restaurant - تذوق أشهى الأطباق</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #FFD700;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .restaurant-name {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .section {
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        /* رأس القسم مع بطاقة الوجبة السريعة */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .section-header .section-title {
+            margin: 0;
+            text-align: start;
+        }
+        .quick-meal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 14px;
+            padding: 8px 10px;
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.18);
+        }
+        .quick-meal img {
+            width: 46px;
+            height: 46px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.25);
+        }
+        .quick-meal .meta {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .quick-meal .name {
+            font-weight: 700;
+            color: #FFD700;
+            font-size: 0.95em;
+        }
+        .quick-meal .price {
+            font-weight: 700;
+            color: #fff;
+            opacity: 0.9;
+            font-size: 0.85em;
+        }
+        .quick-meal button {
+            background: #DC143C;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            box-shadow: 0 6px 15px rgba(220, 20, 60, 0.35);
+        }
+        .quick-meal button:active { transform: scale(0.95); }
+
+        .section > div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .section > div > div {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .section > div > div:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .section > div > div img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .section > div > div > div:nth-of-type(1) {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 8px;
+        }
+
+        .section > div > div > div:nth-of-type(2) {
+            font-size: 0.9em;
+            color: #ccc;
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .section > div > div span {
+            background: linear-gradient(45deg, #DC143C, #B22222);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .section > div > div button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #DC143C;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section > div > div button:hover {
+            background: #B22222;
+            transform: scale(1.1);
+        }
+
+        .section > div > div button:active {
+            transform: scale(0.95);
+        }
+
+        /* روابط التواصل الاجتماعي */
+        .section:first-of-type + div {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .section:first-of-type + div a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(220,39,67,0.4);
+            transition: all 0.4s ease;
+            border: 3px solid rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:first-of-type + div a:hover {
+            transform: scale(1.15) rotate(3deg);
+            box-shadow: 0 12px 35px rgba(220,39,67,0.6);
+        }
+
+        .section:first-of-type + div img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            z-index: 2;
+            position: relative;
+        }
+
+        .section:first-of-type + div div {
+            font-size: 0.9em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* تحسينات للهواتف */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .restaurant-name {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px 10px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .section > div > div {
+                width: 150px;
+                padding: 15px;
+            }
+            
+            .section > div > div img {
+                width: 60px;
+                height: 60px;
+            }
+
+            /* ترتيب رأس الأقسام وبطاقة الوجبة على الهاتف */
+            .section-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .quick-meal {
+                justify-content: space-between;
+                margin-bottom: 8px;
+            }
+
+            /* تحسين تموضع زر الإضافة داخل بطاقات القسم */
+            .section > div > div button {
+                top: 6px;
+                left: 6px;
+                width: 34px;
+                height: 34px;
+                font-size: 1.2em;
+                z-index: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section > div > div {
+                width: 140px;
+                padding: 12px;
+            }
+            
+            .section > div > div img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .quick-meal {
+                gap: 8px;
+                padding: 8px 10px;
+            }
+            .quick-meal img {
+                width: 42px;
+                height: 42px;
+            }
+            .quick-meal .name { font-size: 0.9em; }
+            .quick-meal .price { font-size: 0.8em; }
+            .quick-meal button { padding: 6px 10px; }
+
+            .section > div > div button {
+                width: 30px;
+                height: 30px;
+                font-size: 1.1em;
+            }
+        }
+
+        /* تحسينات السلة للهواتف */
+        @media (max-width: 768px) {
+            #cart {
+                top: 15px !important;
+                right: 15px !important;
+                padding: 12px !important;
+                width: 60px !important;
+                height: 60px !important;
+            }
+            
+            #cart-modal > div {
+                width: 95% !important;
+                max-width: none !important;
+                margin: 10px !important;
+                padding: 20px !important;
+                max-height: 90vh !important;
+            }
+            
+            #cart-modal h2 {
+                font-size: 1.5em !important;
+            }
+            
+            #cart-modal input, #cart-modal select, #cart-modal textarea {
+                font-size: 16px !important;
+                padding: 15px !important;
+            }
+            
+            #cart-modal button {
+                padding: 18px !important;
+                font-size: 1.2em !important;
+            }
+        }
+
+        /* تحسينات خاصة بالايفون */
+        @media screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 768px) {
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100vw !important;
+                overflow-x: hidden !important;
+            }
+            
+            header {
+                padding: 10px 5px !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            
+            .header-content {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 10px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .restaurant-name {
+                font-size: 1.6em !important;
+                text-align: center !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .section {
+                padding: 10px 5px !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            
+            .section-title {
+                font-size: 1.3em !important;
+                margin-bottom: 10px !important;
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            .section > div {
+                justify-content: space-around !important;
+                gap: 8px !important;
+                flex-wrap: wrap !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            
+            .section > div > div {
+                width: calc(50% - 4px) !important;
+                padding: 8px 4px !important;
+                margin-left: 0 !important;
+                margin-bottom: 8px !important;
+                box-sizing: border-box !important;
+            }
+            
+            .section > div > div img {
+                width: 60px !important;
+                height: 60px !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .section > div > div > div:nth-of-type(1) {
+                font-size: 0.9em !important;
+                margin-bottom: 3px !important;
+                line-height: 1.2 !important;
+            }
+            
+            .section > div > div > div:nth-of-type(2) {
+                font-size: 0.75em !important;
+                min-height: 45px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .section > div > div span {
+                font-size: 0.9em !important;
+                padding: 4px 8px !important;
+            }
+            
+            .section > div > div button {
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 1.2em !important;
+                top: 6px !important;
+                left: 6px !important;
+            }
+            
+            /* تحسين روابط التواصل الاجتماعي */
+            .section:first-of-type + div {
+                gap: 15px !important;
+                margin-top: 15px !important;
+                padding: 0 10px !important;
+            }
+            
+            .section:first-of-type + div a {
+                width: 70px !important;
+                height: 70px !important;
+            }
+            
+            .section:first-of-type + div img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+            
+            .section:first-of-type + div div {
+                font-size: 0.7em !important;
+            }
+            
+            /* إزالة الفراغات السفلية */
+            .section:last-of-type {
+                margin-bottom: 0 !important;
+                padding-bottom: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+          <img src="images/mj.jpg" alt="MJ" style="width:60px;height:60px;border-radius:50%;margin-right:15px;">
+          <span class="restaurant-name">تذوق أشهى الأطباق</span>
+          <a href="index.html" style="margin-right:20px;color:#ff6b35;text-decoration:none;font-weight:600;padding:8px 16px;border:2px solid #ff6b35;border-radius:20px;transition:all 0.3s ease;" onmouseover="this.style.background='#ff6b35';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#ff6b35'">تسجيل الدخول</a>
+        </div>
+      
+      
+      <!-- روابط التواصل الاجتماعي -->
+      <div style="display:flex;justify-content:center;gap:30px;margin-top:30px;">
+        <a href="https://www.instagram.com/mjburger.iq?utm_source=ig_web_button_share_sheet&igsh=eXRkMmI1Zmxic3Vs" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:90px;height:90px;background:linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);color:#fff;border-radius:20px;text-decoration:none;font-weight:bold;box-shadow:0 8px 25px rgba(220,39,67,0.4);transition:all 0.4s ease;border:3px solid rgba(255,255,255,0.3);position:relative;overflow:hidden;" onmouseover="this.style.transform='scale(1.15) rotate(3deg)';this.style.boxShadow='0 12px 35px rgba(220,39,67,0.6)'" onmouseout="this.style.transform='scale(1) rotate(0deg)';this.style.boxShadow='0 8px 25px rgba(220,39,67,0.4)'">
+          <img src="images/instagram.png" alt="Instagram" style="width:45px;height:45px;margin-bottom:8px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));z-index:2;position:relative;">
+          <div>Instagram</div>
+        </a>
+        
+        <a href="https://wa.me/9647801234567" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:90px;height:90px;background:linear-gradient(45deg, #25D366, #128C7E);color:#fff;border-radius:20px;text-decoration:none;font-weight:bold;box-shadow:0 8px 25px rgba(37,211,102,0.4);transition:all 0.4s ease;border:3px solid rgba(255,255,255,0.3);position:relative;overflow:hidden;" onmouseover="this.style.transform='scale(1.15) rotate(-3deg)';this.style.boxShadow='0 12px 35px rgba(37,211,102,0.6)'" onmouseout="this.style.transform='scale(1) rotate(0deg)';this.style.boxShadow='0 8px 25px rgba(37,211,102,0.4)'">
+          <img src="images/whatsapp-1.png" alt="WhatsApp" style="width:45px;height:45px;margin-bottom:8px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));z-index:2;position:relative;">
+          <div>WhatsApp</div>
+        </a>
+      </div>
+    </header>
+
+    
+
+    <!-- البرجرز -->
+    <div class="section">
+        <div class="quick-meal" style="margin-bottom:12px;">
+            <img src="images/وجبه.png" alt="اجعلها وجبه" onerror="this.onerror=null; this.src='images/وجبه.jpg'; this.onerror=function(){ this.onerror=null; this.src='images/وجبه.webp'; };">
+            <div class="meta">
+                <span class="name">اجعلها وجبه</span>
+                <span class="price">1,500 د.ع</span>
+            </div>
+            <button onclick="addToOrder('اجعلها وجبه', 1.5)">+</button>
+        </div>
+        <div class="section-header">
+            <h2 class="section-title">🍔 البرجرز</h2>
+        </div>
+        <div>
+            <div>
+                <button onclick="addToOrder('جيز بركر', 4.5)">+</button>
+                <img src="images/جيز بركر.jpg" alt="جيز بركر صغير">
+                <div>جيز بركر</div>
+                <div>شريحه لحم 120 غنم مع جبن، بطاطا، خس، بصل، طماطم، صلصه باربكيو</div>
+                <span>4,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('دبايلو بركر', 4)">+</button>
+                <img src="images/دبايلو بركر.png" alt="دبايلو بركر">
+                <div>دبايلو بركر</div>
+                <div>ريحه لحم 120 غنم مع جبن، بطاطا، خس، بصل، طماطم، صلصه باربكيو</div>
+                <span>4,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('مشروم بركر', 5)">+</button>
+                <img src="images/مشروم بركر.png" alt="مشروم بركر">
+                <div>مشروم بركر</div>
+                <div>ريحه لحم 120 غنم مع جبن، بطاطا، خس، بصل، طماطم، صلصه باربكيو</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('اوجي بركر', 4)">+</button>
+                <img src="images/اوجي بركر.png" alt="اوجي بركر">
+                <div>اوجي بركر</div>
+                <div>ريحه لحم 120 غنم مع جبن، بطاطا، خس، بصل، طماطم، صلصه باربكيو</div>
+                <span>4,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ريزو اعشاب', 5)">+</button>
+                <img src="images/ريزو اعشاب.png" alt="ريزو اعشاب">
+                <div>ريزو اعشاب</div>
+                <div>طبق غني بالنكه يتكون من ارز مبهر بالتوابل الخاصه.يظهى مع لمسه من البابريكا والكركم ليمنحه لونا ذهبيا شهيا ,ويقدم مع قطع دجاج مقرمشه او مشويه</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('زنكر', 4.5)">+</button>
+                <img src="images/زنكر.png" alt="زنكر">
+                <div>زنكر</div>
+                <div>صدر دجاج طري ومتبل بتوابل خاصة سبايسي ، يُغلف ذهبية مقرمشة يُقدّم داخل خبز برجر طري، مع خس طازج، وخيار، وشريحة جبن مذابة، ومغطى بصوص زنكر</div>
+                <span>4,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ام جي جكن', 4)">+</button>
+                <img src="images/ام جي جكن.png" alt="ام جي جكن">
+                <div>ام جي جكن</div>
+                <div>صدر دجاج طري ومتبل بتوابل خاصة ، يُغلف ذهبية مقرمشة يُقدّم داخل خبز برجر طري، مع خس طازج وخيار وشريحة جبن مذابة، ومغطى بصوص MJ</div>
+                <span>4,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('هوت دوك', 3)">+</button>
+                <img src="images/هوت دوك.png" alt="هوت دوك">
+                <div>هوت دوك</div>
+                <div>سحق دجاج عالي الجوده يشوي او يبخر حتى النضج داخل خبز طري وطازج يغطى بصوص الخاص ونكه سريعه متزوانه</div>
+                <span>3,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('تكساس بركر', 5.5)">+</button>
+                <img src="images/تكساس بركر.png" alt="تكساس بركر">
+                <div>تكساس بركر</div>
+                <div>شرحه لحم غنم مشوي على الهب ,بطاطا,خس ,بصل. طماطم , صلصله باربكيو الخاصه</div>
+                <span>5,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ترافل بركر', 5)">+</button>
+                <img src="images/ترافل بركر.png" alt="ترافل بركر">
+                <div>ترافل بركر</div>
+                <div>شرحه لحم غنم مشوي على الهب ,بطاطا,خس ,بصل. طماطم , صلصله باربكيو الخاصه</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('فليم بركر', 5)">+</button>
+                <img src="images/فليم بركر.png" alt="فليم بركر">
+                <div>فليم بركر</div>
+                <div>شرحه لحم غنم مشوي على الهب ,بطاطا,خس ,بصل. طماطم , صلصله باربكيو الخاصه</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ريزو مدخن', 5)">+</button>
+                <img src="images/ريزو مدخن.png" alt="ريزو مدخن">
+                <div>ريزو مدخن</div>
+                <div>ريزو مدخن مع صلصة خاصة</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ريزو ام جي', 5)">+</button>
+                <img src="images/ريزو ام جي.png" alt="ريزو ام جي">
+                <div>ريزو ام جي</div>
+                <div>ريزو ام جي مع صلصة خاصة</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('سترپس دجاج', 5)">+</button>
+                <img src="images/كرسبي دجاج.png" alt="سترپس دجاج">
+                <div>سترپس دجاج</div>
+                <div>فقط دجاج مقرمش</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('جكن بركر', 3)">+</button>
+                <img src="images/جكن بركر.png" alt="جكن بركر">
+                <div>جكن بركر</div>
+                <div>بركر دجاج شهي</div>
+                <span>3,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('سوبريم بركر', 6)">+</button>
+                <img src="images/سوبريم بركر.png" alt="سوبريم بركر">
+                <div>سوبريم بركر</div>
+                <div>شرحه لحم غنم مشوي على الهب ,بطاطا,خس ,بصل. طماطم , صلصله باربكيو الخاصه</div>
+                <span>6,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ام جي بركر', 6)">+</button>
+                <img src="images/ام جي بركر.png" alt="ام جي بركر">
+                <div>ام جي بركر</div>
+                <div>شريحه الحم 130 غنم مع شريحه جبن من مذابه , بطاطا,خس,بصل, طماطم ,صلصه باربكيو الخاصه مغلف بالكامل في حزمه واحده لحفظ التجربه المميزه خلي هذا الوصف</div>
+                <span>6,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('لافا بركر', 4)">+</button>
+                <img src="images/لافا بركر.png" alt="لافا بركر">
+                <div>لافا بركر</div>
+                <div>شريحه الحم 130 غنم مع شريحه جبن من مذابه , بطاطا,خس,بصل, طماطم ,صلصه باربكيو الخاصه مغلف بالكامل في حزمه واحده لحفظ التجربه المميزه خلي هذا الوصف</div>
+                <span>4,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('دبل بركر', 7)">+</button>
+                <img src="images/دبل بركر.png" alt="دبل بركر">
+                <div>دبل بركر</div>
+                <div>شريحتان من اللحم 240 غم ، مع شريحتا الجبن المذاب بطاطا خس, بصل, طماطم صلصة باربيكيو الخاصة</div>
+                <span>7,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('تريل بركر', 9)">+</button>
+                <img src="images/تريل بركر.png" alt="تريل بركر">
+                <div>تريل بركر</div>
+                <div>ثلاث شرائح من اللحم 360 غم. مع ثلالث شرائح من الجبن المذاب بطاطا خس, بصل, طماطم صلصة باربيكيو الخاصة</div>
+                <span>9,000 د.ع</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- الدجاج -->
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">🍗 الدجاج</h2>
+        </div>
+        <div class="quick-meal" style="margin-bottom:12px;">
+            <img src="images/وجبه.png" alt="اجعلها وجبه" onerror="this.onerror=null; this.src='images/وجبه.jpg'; this.onerror=function(){ this.onerror=null; this.src='images/وجبه.webp'; };">
+            <div class="meta">
+                <span class="name">اجعلها وجبه</span>
+                <span class="price">1,500 د.ع</span>
+            </div>
+            <button onclick="addToOrder('اجعلها وجبه', 1.5)">+</button>
+        </div>
+        <div>
+            <div>
+                <button onclick="addToOrder('دجاج فيلي', 5)">+</button>
+                <img src="images/دجاج فيلي.png" alt="دجاج فيلي">
+                <div>دجاج فيلي</div>
+                <div>قطع دجاج بصل قطر صلصة صويا ، جبن موزريلا. فرنس Mionl</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('سندويج ستيك', 5.5)">+</button>
+                <img src="images/سندويج ستيك.png" alt="سندويج ستيك">
+                <div>سندويج ستيك</div>
+                <div>لحم, بصل, فطر فلفل . جبن موزريلا ماصة مايونيز خاصة</div>
+                <span>5,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('كاسديا دجاج', 5.5)">+</button>
+                <img src="images/كاسديا دجاج.png" alt="كاسديا دجاج">
+                <div>كاسديا دجاج</div>
+                <div>دجاج, يصل فلفل اخضر . صلصة صويا ، جبن موزريلا. خير ماج, سويت جيلي</div>
+                <span>5,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('فاهيتا لحم', 5)">+</button>
+                <img src="images/فاهيتا لحم.png" alt="فاهيتا لحم">
+                <div>فاهيتا لحم</div>
+                <div>لحم, يصل قطر ،فلفل . صلصة صويا صلصة MJ</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('فاهيتا دجاج', 4.5)">+</button>
+                <img src="images/فاهيتا دجاج.png" alt="فاهيتا دجاج">
+                <div>فاهيتا دجاج</div>
+                <div>دجاج ، بصل ، فطر ، فلفل ، جبن موزريلا . صمون ماستر، صلصة MJ</div>
+                <span>4,500 د.ع</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- الأطباق الجانبية -->
+    <div class="section">
+        <h2 class="section-title">🍟 الأطباق الجانبية</h2>
+        <div>
+            <div>
+                <button onclick="addToOrder('وجبه', 1.5)">+</button>
+                <img src="images/وجبه.png" alt="وجبه" onerror="this.onerror=null; this.src='images/وجبه.jpg'; this.onerror=function(){ this.onerror=null; this.src='images/وجبه.webp'; };">
+                <div>وجبه</div>
+                <div>اختيار خفيف وشهي</div>
+                <span>1,500 د.ع</span>
+            </div>
+
+            <div>
+                <button onclick="addToOrder('كيرلي', 3)">+</button>
+                <img src="images/كيرلي.jpg" alt="كيرلي">
+                <div>كيرلي</div>
+                <div>مقبلات خفيفة شهية</div>
+                <span>3,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('طبق فنكر بالجبن', 2.5)">+</button>
+                <img src="images/طبق فنكر بالجبن.jpg" alt="طبق فنكر بالجبن">
+                <div>طبق فنكر بالجبن</div>
+                <div>مقبلات خفيفة شهية</div>
+                <span>2,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('طبق فنكر بلصلصة', 2.5)">+</button>
+                <img src="images/طبق فنكر بلصلصة.jpg" alt="طبق فنكر بلصلصة">
+                <div>طبق فنكر بلصلصة</div>
+                <div>مقبلات خفيفة شهية</div>
+                <span>2,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('فنكر', 1)">+</button>
+                <img src="images/فنكر.png" alt="فنكر">
+                <div>فنكر</div>
+                <div>مقبلات خفيفة شهية</div>
+                <span>1,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('وجز بطاطا', 3.5)">+</button>
+                <img src="images/وجز بطاطا.png" alt="وجز بطاطا">
+                <div>وجز بطاطا</div>
+                <div>مقبلات خفيفة شهية</div>
+                <span>3,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('كرات دجاج', 3.5)">+</button>
+                <img src="images/قطعه ستبربس.webp" alt="كرات دجاج">
+                <div>كرات دجاج</div>
+                <div>مقبلات خفيفة شهية</div>
+                <span>3,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ناكتس دجاج', 3.5)">+</button>
+                <img src="images/ناكتس دجاج.jpg" alt="ناكتس دجاج">
+                <div>ناكتس دجاج</div>
+                <div>مقبلات خفيفة شهية</div>
+                <span>3,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('سلطه سيزر', 5)">+</button>
+                <img src="images/سلطه سيزر .png" alt="سلطه سيزر">
+                <div>سلطه سيزر</div>
+                <div>خس ملفوق ذرة تلماطة كرزية, صوص هاني ماسترد دجاج مقرمش ، شريس</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('سلطة كرسبي', 5)">+</button>
+                <img src="images/سلطه كرسبي .png" alt="سلطة كرسبي" onerror="this.onerror=null; this.src='images/سلطه كرسبي .jpg'; this.onerror=function(){ this.onerror=null; this.src='images/سلطه كرسبي .webp'; };">
+                <div>سلطة كرسبي</div>
+                <div>سلطة دجاج مقرمش مع صوص لذيذ</div>
+                <span>5,000 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('فنكر دجاج', 4.5)">+</button>
+                <img src="images/فنكر دجاج.png" alt="فنكر دجاج">
+                <div>فنكر دجاج</div>
+                <div>فنكر دجاج شهي</div>
+                <span>4,500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('فنكر لحم', 5)">+</button>
+                <img src="images/فنكر لحم.png" alt="فنكر لحم">
+                <div>فنكر لحم</div>
+                <div>فنكر لحم شهي</div>
+                <span>5,000 د.ع</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- المشروبات -->
+    <div class="section">
+        <h2 class="section-title">🥤 المشروبات</h2>
+        <div>
+            <div>
+                <button onclick="addToOrder('فانتا', 0.5)">+</button>
+                <img src="images/فانتا.webp" alt="فانتا">
+                <div>فانتا</div>
+                <div>مشروب غازي منعش</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('كولا', 0.5)">+</button>
+                <img src="images/كولا.webp" alt="كولا">
+                <div>كولا</div>
+                <div>مشروب غازي منعش</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('سبرايت', 0.5)">+</button>
+                <img src="images/سبرايت.jpg" alt="سبرايت">
+                <div>سبرايت</div>
+                <div>مشروب غازي منعش</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('كولا دايت', 0.5)">+</button>
+                <img src="images/كولا دايت.jpg" alt="كولا دايت">
+                <div>كولا دايت</div>
+                <div>مشروب غازي منعش</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('ببسي مكينة', 1)">+</button>
+                <img src="images/ببسي مكينة.png" alt="ببسي مكينة">
+                <div>ببسي مكينة</div>
+                <div>مشروب غازي منعش</div>
+                <span>1,000 د.ع</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- الصلصات -->
+    <div class="section">
+        <h2 class="section-title">🍯 الصلصات</h2>
+        <div>
+            <div>
+                <button onclick="addToOrder('HONEY MUSTARD', 0.5)">+</button>
+                <img src="images/HONEY MUSTARD.png" alt="HONEY MUSTARD">
+                <div>HONEY MUSTARD</div>
+                <div>صلصة شهية</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('BBQ', 0.5)">+</button>
+                <img src="images/BBQ.png" alt="BBQ">
+                <div>BBQ</div>
+                <div>صلصة شهية</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('BUFFALO', 0.5)">+</button>
+                <img src="images/BUFFALO.png" alt="BUFFALO">
+                <div>BUFFALO</div>
+                <div>صلصة شهية</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('RANCH', 0.5)">+</button>
+                <img src="images/RANCH.png" alt="RANCH">
+                <div>RANCH</div>
+                <div>صلصة شهية</div>
+                <span>500 د.ع</span>
+            </div>
+            
+            <div>
+                <button onclick="addToOrder('MJ SAUCE', 0.5)">+</button>
+                <img src="images/MJ SAUCE.png" alt="MJ SAUCE">
+                <div>MJ SAUCE</div>
+                <div>صلصة شهية</div>
+                <span>500 د.ع</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة الطلبات -->
+    <div id="cart" style="position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #DC143C, #B22222); color: white; padding: 15px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4); z-index: 1000; transition: all 0.3s ease;" onclick="toggleCart()">
+        <div style="font-size: 1.5em; margin-bottom: 5px;">🛒</div>
+        <div style="font-size: 0.9em; font-weight: bold;">السلة</div>
+        <div id="cart-count" style="background: white; color: #DC143C; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; font-weight: bold; margin: 5px auto 0 auto;">0</div>
+    </div>
+
+    <!-- نافذة السلة -->
+    <div id="cart-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+            <!-- رأس السلة -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #DC143C;">
+                <h2 style="margin: 0; color: #DC143C; font-size: 1.8em;">🛒 سلة الطلبات</h2>
+                <button onclick="closeCart()" style="background: #DC143C; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5em; cursor: pointer;">×</button>
+            </div>
+
+            <!-- محتوى السلة -->
+            <div id="cart-items" style="margin-bottom: 25px;">
+                <!-- سيتم إضافة الأطباق هنا -->
+            </div>
+
+            <!-- المجموع -->
+            <div id="cart-total" style="background: linear-gradient(135deg, #DC143C, #B22222); color: white; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 25px; font-size: 1.2em; font-weight: bold;">
+                المجموع: <span id="total-amount">0</span> د.ع
+            </div>
+
+            <!-- نموذج الطلب -->
+            <div id="order-form" style="display: none;">
+                <h3 style="color: #DC143C; margin-bottom: 20px; text-align: center;">📋 بيانات الطلب</h3>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #333; font-weight: bold;">الاسم:</label>
+                    <input type="text" id="customer-name" style="width: 100%; padding: 12px; border: 2px solid #DC143C; border-radius: 10px; font-size: 1em; box-sizing: border-box;" placeholder="أدخل اسمك الكامل">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #333; font-weight: bold;">الرقم:</label>
+                    <input type="tel" id="customer-phone" style="width: 100%; padding: 12px; border: 2px solid #DC143C; border-radius: 10px; font-size: 1em; box-sizing: border-box;" placeholder="مثال: 0777 123 4567">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #333; font-weight: bold;">نوع عملية الشراء:</label>
+                    <input type="text" value="نقد" readonly style="width: 100%; padding: 12px; border: 2px solid #DC143C; border-radius: 10px; font-size: 1em; box-sizing: border-box; background: #f8f9fa; color: #666;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #333; font-weight: bold;">نوع الطلب:</label>
+                    <input type="text" value="إرسال الى العنوان" readonly style="width: 100%; padding: 12px; border: 2px solid #DC143C; border-radius: 10px; font-size: 1em; box-sizing: border-box; background: #f8f9fa; color: #666;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #333; font-weight: bold;">العنوان:</label>
+                    <textarea id="customer-address" required style="width: 100%; padding: 12px; border: 2px solid #DC143C; border-radius: 10px; font-size: 1em; box-sizing: border-box; height: 80px; resize: vertical;" placeholder="أدخل العنوان التفصيلي"></textarea>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #333; font-weight: bold;">الفرع:</label>
+                    <select id="branch" style="width: 100%; padding: 12px; border: 2px solid #DC143C; border-radius: 10px; font-size: 1em; box-sizing: border-box;">
+                        <option value="9647779395304">شهداء البياع - البياع - 07779395304</option>
+                        <option value="9647774777192">الكراده - 07774777192</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; color: #333; font-weight: bold;">ملاحظة الزبون:</label>
+                    <textarea id="customer-notes" style="width: 100%; padding: 12px; border: 2px solid #DC143C; border-radius: 10px; font-size: 1em; box-sizing: border-box; height: 80px; resize: vertical;" placeholder="أي ملاحظات إضافية..."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="sendOrder()" style="flex: 1; background: linear-gradient(135deg, #25d366, #128c7e); color: white; border: none; padding: 15px; border-radius: 15px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                        📱 إرسال الطلب
+                    </button>
+                    <button onclick="orderByCall()" style="flex: 1; background: linear-gradient(135deg, #DC143C, #B22222); color: white; border: none; padding: 15px; border-radius: 15px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                        📞 اطلب عبر اتصال
+                    </button>
+                </div>
+            </div>
+
+            <!-- أزرار التحكم -->
+            <div id="cart-controls" style="display: flex; gap: 10px;">
+                <button onclick="clearCart()" style="flex: 1; background: linear-gradient(135deg, #ff4444, #cc0000); color: white; border: none; padding: 15px; border-radius: 15px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                    🗑️ مسح السلة
+                </button>
+                <button onclick="showOrderForm()" style="flex: 1; background: linear-gradient(135deg, #DC143C, #B22222); color: white; border: none; padding: 15px; border-radius: 15px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                    📋 إتمام الطلب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToOrder(item, price) {
+            // البحث عن الطبق في السلة
+            const existingItem = cart.find(cartItem => cartItem.item === item);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ item, price, quantity: 1 });
+            }
+            
+            updateCartDisplay();
+            showCartNotification();
+        }
+
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const totalAmount = document.getElementById('total-amount');
+            
+            // تحديث العداد
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // تحديث محتوى السلة
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">السلة فارغة</div>';
+                document.getElementById('cart-controls').style.display = 'none';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 10px; margin-bottom: 10px; border: 2px solid #DC143C;">
+                        <div style="flex: 1;">
+                            <div style="font-weight: bold; color: #DC143C; margin-bottom: 5px;">${item.item}</div>
+                            <div style="color: #666; font-size: 0.9em;">${item.price} د.ع × ${item.quantity}</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button onclick="updateQuantity('${item.item}', -1)" style="background: #DC143C; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 1.2em;">-</button>
+                            <span style="font-weight: bold; min-width: 20px; text-align: center;">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.item}', 1)" style="background: #DC143C; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 1.2em;">+</button>
+                            <button onclick="removeItem('${item.item}')" style="background: #ff4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 1em;">×</button>
+                        </div>
+                    </div>
+                `).join('');
+                document.getElementById('cart-controls').style.display = 'flex';
+            }
+            
+            // تحديث المجموع
+            total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            totalAmount.textContent = total.toLocaleString();
+        }
+
+        function updateQuantity(itemName, change) {
+            const item = cart.find(cartItem => cartItem.item === itemName);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeItem(itemName);
+                } else {
+                    updateCartDisplay();
+                }
+            }
+        }
+
+        function removeItem(itemName) {
+            cart = cart.filter(item => item.item !== itemName);
+            updateCartDisplay();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartDisplay();
+            hideOrderForm();
+        }
+
+        function toggleCart() {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = cartModal.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+            hideOrderForm();
+        }
+
+        function showOrderForm() {
+            if (cart.length === 0) {
+                alert('السلة فارغة!');
+                return;
+            }
+            document.getElementById('order-form').style.display = 'block';
+            document.getElementById('cart-controls').style.display = 'none';
+        }
+
+        function hideOrderForm() {
+            document.getElementById('order-form').style.display = 'none';
+            document.getElementById('cart-controls').style.display = 'flex';
+        }
+
+        function sendOrder() {
+            const name = document.getElementById('customer-name').value;
+            const phone = document.getElementById('customer-phone').value;
+            const address = document.getElementById('customer-address').value;
+            const branch = document.getElementById('branch').value;
+            const notes = document.getElementById('customer-notes').value;
+
+            if (!name || !phone) {
+                alert('يرجى ملء الاسم والرقم');
+                return;
+            }
+
+            if (!address) {
+                alert('يرجى إدخال العنوان');
+                return;
+            }
+
+            // إنشاء رسالة الواتساب
+            let message = `🍔 طلب جديد من مطعم MJ\n\n`;
+            message += `👤 الاسم: ${name}\n`;
+            message += `📱 الرقم: ${phone}\n`;
+            message += `💳 نوع الدفع: نقد\n`;
+            message += `📦 نوع الطلب: إرسال الى العنوان\n`;
+            message += `📍 العنوان: ${address}\n`;
+            message += `🏪 الفرع: ${document.getElementById('branch').selectedOptions[0].text}\n\n`;
+            message += `🛒 الطلبات:\n`;
+            
+            cart.forEach(item => {
+                message += `• ${item.item} × ${item.quantity} = ${(item.price * item.quantity).toLocaleString()} د.ع\n`;
+            });
+            
+            message += `\n💰 المجموع: ${total.toLocaleString()} د.ع\n`;
+            
+            if (notes) {
+                message += `\n📝 ملاحظات: ${notes}`;
+            }
+
+            // إرسال عبر الواتساب
+            const whatsappUrl = `https://wa.me/${branch}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // إغلاق السلة ومسح البيانات
+            clearCart();
+            closeCart();
+            alert('تم إرسال الطلب بنجاح!');
+        }
+
+        function orderByCall() {
+            const name = document.getElementById('customer-name').value;
+            const phone = document.getElementById('customer-phone').value;
+            const branch = document.getElementById('branch').value;
+
+            if (!name || !phone) {
+                alert('يرجى ملء الاسم والرقم');
+                return;
+            }
+
+            const branchName = document.getElementById('branch').selectedOptions[0].text;
+            
+            let message = `🍔 طلب عبر الاتصال من مطعم MJ\n\n`;
+            message += `👤 الاسم: ${name}\n`;
+            message += `📱 الرقم: ${phone}\n`;
+            message += `🏪 الفرع: ${branchName}\n\n`;
+            message += `🛒 الطلبات:\n`;
+            
+            cart.forEach(item => {
+                message += `• ${item.item} × ${item.quantity} = ${(item.price * item.quantity).toLocaleString()} د.ع\n`;
+            });
+            
+            message += `\n💰 المجموع: ${total.toLocaleString()} د.ع\n`;
+            message += `\n📞 يرجى الاتصال بالفرع لإتمام الطلب`;
+
+            const whatsappUrl = `https://wa.me/${branch}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            clearCart();
+            closeCart();
+            alert('تم إرسال طلب الاتصال بنجاح!');
+        }
+
+        function showCartNotification() {
+            const cartElement = document.getElementById('cart');
+            cartElement.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                cartElement.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // تأثيرات بصرية إضافية
+        document.querySelectorAll('.section > div > div').forEach(div => {
+            div.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            div.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // تأثيرات السلة
+        document.getElementById('cart').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.boxShadow = '0 6px 20px rgba(220, 20, 60, 0.6)';
+        });
+
+        document.getElementById('cart').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 4px 15px rgba(220, 20, 60, 0.4)';
+        });
+
+        // إخفاء السلة عند تحميل الصفحة لأول مرة
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+

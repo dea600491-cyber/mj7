@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - MJ Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-section img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #ff6b35;
+        }
+
+        .logo-section h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-section p {
+            font-size: 1.1em;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        .story-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .story-section h2 {
+            color: #ff6b35;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .story-section p {
+            line-height: 1.8;
+            font-size: 1em;
+            color: #e0e0e0;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #ff6b35;
+            text-align: center;
+        }
+
+        .login-form {
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff6b35, #ff8c42);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .back-to-site {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ff6b35;
+            border-radius: 25px;
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .back-btn:hover {
+            background: #ff6b35;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 25px;
+                margin: 20px;
+            }
+
+            .logo-section h1 {
+                font-size: 2em;
+            }
+
+            .story-section {
+                padding: 20px;
+            }
+
+            .story-section h2 {
+                font-size: 1.2em;
+            }
+
+            .story-section p {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 20px;
+            }
+
+            .logo-section h1 {
+                font-size: 1.8em;
+            }
+
+            .form-group input {
+                padding: 12px;
+            }
+
+            .login-btn {
+                padding: 12px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-section">
+            <img src="images/mj.jpg" alt="MJ Logo">
+            <h1>MJ Restaurant</h1>
+            <p>تذوق أشهى الأطباق</p>
+        </div>
+
+        <div class="story-section">
+            <h2>قصتنا</h2>
+            <p>بدأت الحكاية من سؤال بسيط: هل نقدر نعمل مطعم ما يشبه أحد—مطعم يصنع تجربة قبل ما يقدّم وجبة؟ هذه كانت شرارة الفكرة التي حوّلت التحدّي الى مسار ريادي. يظهر إيمان بأن الطريق يبدأ من الصفر لكن لا ينتهي عنده؛ المهم أن تظل الهوية حاضرة في كل تفصيل، من أوّل فكرة إلى آخر لقمة.</p>
+            
+            <p>لم نبحث عن "مطعم عادي"، بل عن هوية تُرى وتُحَسّ: نَفَس صلب في الوصفة، وعلامة تتكلم بلغتها الخاصة. لذلك صغنا تجربة MJ: طعم قوي، إيقاع سريع، وإحساس بالمغامرة من اللحظة التي تختار فيها وجبتك حتى آخر لقمة. هذه الروح انعكست على المنيو أيضاً بأسماء مستوحاة من عالم MJ—تجارب صارت مألوفة لعُشّاقنا مثل "أودِن بوكس" و"فلوكي فرايز".</p>
+        </div>
+
+        <form class="login-form">
+            <div class="form-group">
+                <label for="username">اسم المستخدم</label>
+                <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+            </div>
+            
+            <button type="submit" class="login-btn">تسجيل الدخول</button>
+        </form>
+
+        <div class="back-to-site">
+            <a href="index.html" class="back-btn">العودة للموقع الأساسي</a>
+        </div>
+
+        <div class="footer-text">
+            <p>© 2024 MJ Restaurant. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+
+    <script>
+        // تسجيل الدخول
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // يمكن إضافة منطق تسجيل الدخول هنا
+            if (username && password) {
+                alert('مرحباً ' + username + '! تم تسجيل الدخول بنجاح.');
+                // يمكن إعادة توجيه المستخدم إلى صفحة أخرى هنا
+            } else {
+                alert('يرجى ملء جميع الحقول المطلوبة.');
+            }
+        });
+
+        // تأثيرات بصرية إضافية
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
+
