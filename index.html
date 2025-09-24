@@ -2,10 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>مطعم MJ - الصفحة الرئيسية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - MJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
         * {
       margin: 0;
@@ -15,148 +14,73 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 140, 66, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
         }
 
         .login-container {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(25px);
-            border-radius: 25px;
-            padding: 30px;
-            width: 95%;
-            max-width: 450px;
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .login-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), transparent);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .logo-section {
             text-align: center;
-            margin-bottom: 35px;
-            position: relative;
-            opacity: 1;
-            transform: translateY(0);
+            margin-bottom: 30px;
         }
 
         .logo-section img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 4px solid #ff6b35;
-            box-shadow: 
-                0 0 20px rgba(255, 107, 53, 0.4),
-                0 0 40px rgba(255, 107, 53, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .logo-section img:hover {
-            transform: scale(1.05);
-            box-shadow: 
-                0 0 30px rgba(255, 107, 53, 0.6),
-                0 0 60px rgba(255, 107, 53, 0.3);
+            width: 80px;
+            height: 80px;
+        border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #ff6b35;
         }
 
         .logo-section h1 {
-            font-size: 2.8em;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff6b35, #ff8c42, #ffa726);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            letter-spacing: -1px;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .logo-section p {
-            font-size: 1.2em;
-            color: #e0e0e0;
-            font-weight: 400;
-            opacity: 0.9;
+            font-size: 1.1em;
+            color: #ccc;
+            font-weight: 300;
         }
 
         .story-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 28px;
-            margin-bottom: 35px;
-            border-left: 5px solid #ff6b35;
-            position: relative;
-            overflow: hidden;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .story-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), transparent);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff6b35;
         }
 
         .story-section h2 {
-            background: linear-gradient(135deg, #FFD700, #ff8c42);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 1.7em;
-            margin-bottom: 18px;
+            color: #ff6b35;
+            font-size: 1.4em;
+            margin-bottom: 15px;
             text-align: center;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-            letter-spacing: -0.5px;
         }
 
         .story-section p {
-            line-height: 1.9;
-            font-size: 1.08em;
-            color: #ff8c42;
+            line-height: 1.8;
+            font-size: 1em;
+            color: #e0e0e0;
             text-align: justify;
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .story-section p.highlight-yellow {
-            color: #FFD700;
+            margin-bottom: 15px;
         }
 
         .story-section p:last-child {
@@ -164,10 +88,68 @@
             font-style: italic;
             color: #ff6b35;
             text-align: center;
-            font-weight: 500;
-            font-size: 1.05em;
         }
 
+        .login-form {
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff6b35, #ff8c42);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
 
         .back-to-site {
             text-align: center;
@@ -196,345 +178,125 @@
 
         .footer-text {
             text-align: center;
-            margin-top: 25px;
-            color: #aaa;
-            font-size: 0.95em;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .footer-text p {
-            margin: 0;
-            padding: 10px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            color: #888;
+            font-size: 0.9em;
         }
 
         .main-entry-section {
-            margin-bottom: 35px;
-            opacity: 1;
-            transform: translateY(0);
+            margin-bottom: 30px;
         }
 
         .main-entry-btn {
             display: block;
             text-decoration: none;
-            background: linear-gradient(135deg, #ff6b35, #ff8c42, #ffa726);
-            border-radius: 25px;
-            padding: 35px 25px;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 
-                0 15px 35px rgba(255, 107, 53, 0.4),
-                0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .main-entry-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .main-entry-btn:hover::before {
-            left: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .main-entry-btn:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 
-                0 20px 50px rgba(255, 107, 53, 0.6),
-                0 10px 25px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, #ff8c42, #ff6b35, #ff9800);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(135deg, #ff8c42, #ff6b35);
         }
 
         .main-entry-content {
             color: #fff;
-            position: relative;
-            z-index: 2;
         }
 
         .main-entry-icon {
-            font-size: 3.5em;
-            margin-bottom: 20px;
+            font-size: 3em;
+            margin-bottom: 15px;
             display: block;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
         }
 
         .main-entry-btn h2 {
-            font-size: 2.2em;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            letter-spacing: -0.5px;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .main-entry-btn p {
-            font-size: 1.2em;
-            opacity: 0.95;
-            font-weight: 400;
-            line-height: 1.4;
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
         .branches-section {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 35px;
-            border-left: 5px solid #ff6b35;
-            position: relative;
-            overflow: hidden;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .branches-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), transparent);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff6b35;
         }
 
         .branches-section h2 {
             color: #ff6b35;
-            font-size: 1.6em;
-            margin-bottom: 25px;
+            font-size: 1.4em;
+            margin-bottom: 20px;
             text-align: center;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .branches-section h2 i,
-        .story-section h2 i {
-            margin-left: 10px;
-            color: #ff8c42;
-            font-size: 0.9em;
         }
 
         .branches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+             gap: 15px;
         }
 
         .branch-item {
             background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 25px 20px;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
             border: 2px solid rgba(255, 107, 53, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .branch-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .branch-item:hover::before {
-            opacity: 1;
+            transition: all 0.3s ease;
         }
 
         .branch-item:hover {
             border-color: #ff6b35;
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 
-                0 15px 30px rgba(255, 107, 53, 0.3),
-                0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
         }
 
         .branch-item h3 {
             color: #ff6b35;
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            font-weight: 700;
-            position: relative;
-            z-index: 2;
-        }
-
-        .branch-item h3 i {
-            margin-left: 8px;
-            color: #ff8c42;
-            font-size: 0.9em;
-        }
-
-        .branch-phone i {
-            margin-left: 5px;
-            font-size: 0.9em;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .branch-item p {
             color: #e0e0e0;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
+            font-size: 1em;
+            margin-bottom: 10px;
         }
 
         .branch-phone {
             display: inline-block;
             background: linear-gradient(45deg, #ff6b35, #ff8c42);
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 1em;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
             font-weight: 600;
-            box-shadow: 
-                0 5px 15px rgba(255, 107, 53, 0.4),
-                0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .branch-phone:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 8px 20px rgba(255, 107, 53, 0.6),
-                0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
             .login-container {
-                padding: 25px 20px;
-                margin: 10px;
-                width: 100%;
-                max-width: 100%;
-                border-radius: 20px;
+                padding: 25px;
+                margin: 20px;
             }
-
 
             .main-entry-btn {
-                padding: 30px 20px;
-                border-radius: 20px;
-            }
-
-            .main-entry-btn h2 {
-                font-size: 1.8em;
-            }
-
-            .main-entry-btn p {
-                font-size: 1.1em;
-            }
-
-            .main-entry-icon {
-                font-size: 3em;
-            }
-
-            .logo-section {
-                margin-bottom: 30px;
-            }
-
-            .logo-section img {
-                width: 80px;
-                height: 80px;
-            }
-
-            .logo-section h1 {
-                font-size: 2.2em;
-            }
-
-            .logo-section p {
-                font-size: 1.1em;
-            }
-
-            .story-section {
-                padding: 25px 20px;
-                margin-bottom: 30px;
-            }
-
-            .story-section h2 {
-                font-size: 1.4em;
-            }
-
-            .story-section p {
-                font-size: 1em;
-                line-height: 1.7;
-            }
-
-            .branches-section {
-                padding: 25px 20px;
-                margin-bottom: 30px;
-            }
-
-            .branches-section h2 {
-                font-size: 1.4em;
-            }
-
-            .branches-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                gap: 15px;
-            }
-
-            .branch-item {
-                padding: 20px 15px;
-            }
-
-            .branch-item h3 {
-                font-size: 1.2em;
-            }
-
-            .branch-item p {
-                font-size: 1em;
-            }
-
-            .branch-phone {
-                font-size: 0.9em;
-                padding: 8px 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 5px;
-            }
-
-            .login-container {
-                padding: 20px 15px;
-                margin: 5px;
-                border-radius: 15px;
-            }
-
-
-            .main-entry-btn {
-                padding: 25px 15px;
-                border-radius: 15px;
+                padding: 25px;
             }
 
             .main-entry-btn h2 {
@@ -549,53 +311,29 @@
                 font-size: 2.5em;
             }
 
-            .logo-section {
-                margin-bottom: 25px;
-            }
-
-            .logo-section img {
-                width: 70px;
-                height: 70px;
-            }
-
             .logo-section h1 {
-                font-size: 1.9em;
-            }
-
-            .logo-section p {
-                font-size: 1em;
+                font-size: 2em;
             }
 
             .story-section {
-                padding: 20px 15px;
-                margin-bottom: 25px;
+                padding: 20px;
             }
 
             .story-section h2 {
-                font-size: 1.3em;
+            font-size: 1.2em;
             }
 
             .story-section p {
                 font-size: 0.95em;
-                line-height: 1.6;
-            }
-
-            .branches-section {
-                padding: 20px 15px;
-                margin-bottom: 25px;
-            }
-
-            .branches-section h2 {
-                font-size: 1.3em;
             }
 
             .branches-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 12px;
             }
 
             .branch-item {
-                padding: 18px 15px;
+                padding: 15px;
             }
 
             .branch-item h3 {
@@ -603,27 +341,22 @@
             }
 
             .branch-item p {
-                font-size: 0.95em;
+                font-size: 0.9em;
             }
 
             .branch-phone {
-                font-size: 0.85em;
-                padding: 7px 14px;
-            }
-
-            .footer-text {
-                font-size: 0.85em;
+                font-size: 0.8em;
+                padding: 6px 12px;
             }
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             .login-container {
-                padding: 15px 10px;
-            }
-
-
+        padding: 20px;
+      }
+      
             .main-entry-btn {
-                padding: 20px 10px;
+        padding: 20px;
             }
 
             .main-entry-btn h2 {
@@ -635,78 +368,75 @@
             }
 
             .main-entry-icon {
-                font-size: 2.2em;
+                font-size: 2em;
             }
-
+      
             .logo-section h1 {
-                font-size: 1.7em;
+                font-size: 1.8em;
             }
 
-            .story-section {
-                padding: 15px 10px;
+            .form-group input {
+                padding: 12px;
             }
 
-            .branches-section {
-                padding: 15px 10px;
-            }
-
-            .branch-item {
-                padding: 15px 10px;
-            }
+            .login-btn {
+                padding: 12px;
+        font-size: 1.1em;
         }
+      }
   </style>
 </head>
 <body>
     <div class="login-container">
-        <div class="story-section">
-            <h2><i class="fas fa-book-open"></i> قصتنا</h2>
-            <p class="highlight-yellow">بدأت الحكاية من سؤال بسيط: هل نقدر نعمل مطعم ما يشبه أحد—مطعم يصنع تجربة قبل ما يقدّم وجبة؟ هذه كانت شرارة الفكرة التي حوّلت التحدّي الى مسار ريادي. يظهر إيمان بأن الطريق يبدأ من الصفر لكن لا ينتهي عنده؛ المهم أن تظل الهوية حاضرة في كل تفصيل، من أوّل فكرة إلى آخر لقمة.</p>
-            
-            <p>لم نبحث عن "مطعم عادي"، بل عن هوية تُرى وتُحَسّ: نَفَس صلب في الوصفة، وعلامة تتكلم بلغتها الخاصة. لذلك صغنا تجربة MJ: طعم قوي، إيقاع سريع، وإحساس بالمغامرة من اللحظة التي تختار فيها وجبتك حتى آخر لقمة. هذه الروح انعكست على المنيو أيضاً بأسماء مستوحاة من عالم MJ—تجارب صارت مألوفة لعُشّاقنا.</p>
-        </div>
-        <!-- زر الدخول للمنيو -->
+        <!-- زر الدخول للمنيو في البداية -->
         <div class="main-entry-section">
             <a href="main.html" class="main-entry-btn">
                 <div class="main-entry-content">
-                    <div class="main-entry-icon">🍽️</div>
+                    <div class="main-entry-icon">🍔</div>
                     <h2>دخول للمنيو</h2>
                     <p>تصفح قائمة الطعام واطلب وجبتك المفضلة</p>
-                </div>
-            </a>
-        </div>
-        
+      </div>
+        </a>
+      </div>
+      
         <div class="logo-section">
             <img src="images/mj.jpg" alt="MJ Logo">
             <h1>MJ Restaurant</h1>
             <p>تذوق أشهى الأطباق</p>
       </div>
       
+         <div class="story-section">
+             <h2>قصتنا</h2>
+             <p style="color:#FFD700">بدأت الحكاية من سؤال بسيط: هل نقدر نعمل مطعم ما يشبه أحد—مطعم يصنع تجربة قبل ما يقدّم وجبة؟ هذه كانت شرارة الفكرة التي حوّلت التحدّي الى مسار ريادي. يظهر إيمان بأن الطريق يبدأ من الصفر لكن لا ينتهي عنده؛ المهم أن تظل الهوية حاضرة في كل تفصيل، من أوّل فكرة إلى آخر لقمة.</p>
+             
+             <p>لم نبحث عن "مطعم عادي"، بل عن هوية تُرى وتُحَسّ: نَفَس صلب في الوصفة، وعلامة تتكلم بلغتها الخاصة. لذلك صغنا تجربة MJ: طعم قوي، إيقاع سريع، وإحساس بالمغامرة من اللحظة التي تختار فيها وجبتك حتى آخر لقمة. هذه الروح انعكست على المنيو أيضاً بأسماء مستوحاة من عالم MJ—تجارب صارت مألوفة لعُشّاقنا مثل "أودِن بوكس" و"فلوكي فرايز".</p>
+     </div>
     
         <div class="branches-section">
-            <h2><i class="fas fa-map-marker-alt"></i> فروعنا</h2>
+            <h2>فروعنا</h2>
             <div class="branches-grid">
                 <div class="branch-item">
-                    <h3><i class="fas fa-store"></i> شهداء البياع</h3>
+                    <h3>شهداء البياع</h3>
                     <p>البياع</p>
-                    <span class="branch-phone"><i class="fas fa-phone"></i> 07779395304</span>
-                </div>
+                    <span class="branch-phone">07779395304</span>
+    </div>
                 <div class="branch-item">
-                    <h3><i class="fas fa-store"></i> الكراده</h3>
+                    <h3>الكراده</h3>
                     <p>الكراده</p>
-                    <span class="branch-phone"><i class="fas fa-phone"></i> 07774777192</span>
-                </div>
+                    <span class="branch-phone">07774777192</span>
+    </div>
                 <div class="branch-item">
-                    <h3><i class="fas fa-store"></i> الرمادي</h3>
+                    <h3>الرمادي</h3>
                     <p>الرمادي</p>
-                    <span class="branch-phone"><i class="fas fa-clock"></i> قريباً</span>
-                </div>
-                <div class="branch-item">
-                    <h3><i class="fas fa-store"></i> الفلوجه</h3>
-                    <p>الفلوجه</p>
-                    <span class="branch-phone"><i class="fas fa-clock"></i> قريباً</span>
-                </div>
-            </div>
+                    <span class="branch-phone">قريباً</span>
         </div>
+                <div class="branch-item">
+                    <h3>الفلوجه</h3>
+                    <p>الفلوجه</p>
+                    <span class="branch-phone">قريباً</span>
+      </div>
+    </div>
+    </div>
     
         <div class="footer-text">
             <p>© 2024 MJ Restaurant. جميع الحقوق محفوظة.</p>
@@ -715,68 +445,15 @@
 
       <script>
         // تأثيرات بصرية إضافية
-        document.addEventListener('DOMContentLoaded', function() {
-            // تأثيرات على العناصر عند التمرير
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // تطبيق التأثيرات على العناصر (بدون إخفاء العناصر في البداية)
-            document.querySelectorAll('.main-entry-btn, .story-section, .branches-section, .logo-section').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+              this.parentElement.style.transform = 'scale(1.02)';
             });
-
-            // تأثيرات على الأزرار
-            document.querySelectorAll('.main-entry-btn, .branch-item').forEach(btn => {
-                btn.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.02)';
-                });
-                
-                btn.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
+            
+            input.addEventListener('blur', function() {
+              this.parentElement.style.transform = 'scale(1)';
             });
-
-            // تأثيرات على الأيقونات
-            document.querySelectorAll('.fas').forEach(icon => {
-                icon.style.transition = 'transform 0.3s ease, color 0.3s ease';
-                
-                icon.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.2) rotate(5deg)';
-                    this.style.color = '#ff8c42';
-                });
-                
-                icon.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0deg)';
-                    this.style.color = '';
-                });
-            });
-
-            // تأثيرات على الصورة
-            const logoImg = document.querySelector('.logo-section img');
-            if (logoImg) {
-                logoImg.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1) rotate(5deg)';
-                });
-                
-                logoImg.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0deg)';
-                });
-            }
-
-        });
+         });
       </script>
 </body>
 </html> 
